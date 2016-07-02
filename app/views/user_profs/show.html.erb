@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>ニックネーム:</strong>
+  <%= @userprof.nickname %>
+</p>
+
+
+
+
+<p>
+  <strong>性別:</strong>
+  <%if @userprof.gender == 0%>
+  	<p>男</p>
+  <%end%>
+  <%if @userprof.gender == 1%>
+  	<p>女</p>
+  <%end%>
+  
+</p>
+
+<p>
+  <strong>icon:</strong>
+    <tr>
+      <% if @userprof.image? %>
+    　<td><%= image_tag @userprof.image.url %></td>
+    　<% else %>
+    　<td><%= image_tag 'noimage.gif' %></td>
+    　<% end %>
+      
+    </tr>
+  
+</p>
+
+<p>
+  <strong>年齢:</strong>
+  <%= @userprof.age %>
+</p>
+
+

@@ -3,10 +3,11 @@ class CreateUserProfs < ActiveRecord::Migration
     create_table :user_profs do |t|
       t.string :nickname
       t.integer :gender
-      t.string :icon
+      t.string :image
       t.integer :age
+      t.text :desc
 
-      t.timestamps null: false
+      
     end
   end
 end

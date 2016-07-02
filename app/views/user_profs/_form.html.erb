@@ -13,19 +13,27 @@
 
   <div class="field">
     <%= f.label :nickname %><br>
-    <%= f.text_area :nickname %>
+    <%= f.text_field :nickname %>
   </div>
+
   <div class="field">
     <%= f.label :gender %><br>
-    <%= f.date_select :gender %>
+    <%= f.radio_button :gender, 0 %>男
+    <%= f.radio_button :gender, 1 %>女<br />
+
   </div>
   <div class="field">
-    <%= f.label :icon %><br>
-    <%= f.text_field :icon %>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %> 
   </div>
   <div class="field">
     <%= f.label :age %><br>
-    <%= f.text_area :age %>
+    <%= f.select :age, 18..29 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :desc %><br>
+    <%= f.text_area :desc, :size=>"70" %>
   </div>
   <div class="actions">
     <%= f.submit %>
