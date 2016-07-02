@@ -1,5 +1,7 @@
 class UserProfsController < ApplicationController
 
+  before_action :set_userprof, only: [:show, :edit, :update, :destroy]
+
   def new
     @userprof = UserProf.new
   end
@@ -7,6 +9,10 @@ class UserProfsController < ApplicationController
 
   def edit
   	 @userprof = UserProf.find(params[:id])
+  end
+
+   def show
+    
   end
 
   def create
@@ -34,5 +40,13 @@ class UserProfsController < ApplicationController
       end
     end
   end
+
+  def set_userprof
+      @userprof = UserProf.find(params[:id])
+    end
+
+  def userprof_params
+      params.require(:user_prof).permit(:nickname, :gender, :image, :age, :desc,)
+    end
 
 end
