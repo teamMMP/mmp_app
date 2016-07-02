@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates_uniqueness_of :username
   validates_presence_of :username
+  # validates :email, uniqueness: true
  def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
