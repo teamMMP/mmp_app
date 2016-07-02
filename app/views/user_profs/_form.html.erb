@@ -1,0 +1,33 @@
+<%= form_for(@userprof) do |f| %>
+  <% if @userprof.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@userprof.errors.count, "error") %> prohibited this userprof from being saved:</h2>
+
+      <ul>
+      <% @userprof.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nickname %><br>
+    <%= f.text_area :nickname %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.date_select :gender %>
+  </div>
+  <div class="field">
+    <%= f.label :icon %><br>
+    <%= f.text_field :icon %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.text_area :age %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
