@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
          :authentication_keys => [:username]
 
 
+
+  has_many :favorites, dependent: :destroy
+
+
   validates :username, presence: true, uniqueness: true
   validates_uniqueness_of :username
   validates_presence_of :username
@@ -27,4 +31,5 @@ class User < ActiveRecord::Base
  def email_changed?
     false
  end
+
 end
