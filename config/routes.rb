@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   #devise_for :users
-  resources :events
-  devise_for :users, path_names: { sign_in: "login", sign_out: "logout"}
+  resources :events do
+    resource :favorites, only: [:create, :destroy]
+  end
+  devise_for :users, path_names: { sign_in: "login", sign_out: "logout"}, only: [:index, :show] do
+    get :favorites, on: :member
+  end
   resources :user_profs
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
