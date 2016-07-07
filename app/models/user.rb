@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
     end
  end
   #emailを不要とする
+ 
  def email_required?
     false
  end
