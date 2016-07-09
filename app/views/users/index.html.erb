@@ -1,0 +1,5 @@
+<h1>U一覧</h1>
+
+<% @users.each do |user| %>
+  <%= user.user_prof.try(:nickname) %>	
+<% end %>

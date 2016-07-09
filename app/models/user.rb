@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
 
   has_many :favorites, dependent: :destroy
+  has_one :user_prof
 
 
   validates :username, presence: true, uniqueness: true
