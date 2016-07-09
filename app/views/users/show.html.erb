@@ -1,13 +1,8 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>ニックネーム:</strong>
   <%= @user.user_prof.try(:nickname) %>
 </p>
-
-
-
-
 <p>
   <strong>性別:</strong>
   <%if @user.user_prof.try(:gender) == 0%>
@@ -16,9 +11,7 @@
   <%if @user.user_prof.try(:gender) == 1%>
   	<p>女</p>
   <%end%>
-  
 </p>
-
 <p>
   <strong>icon:</strong>
     <tr>
@@ -27,11 +20,8 @@
     　<% else %>
     　<td><%= image_tag 'noimage.gif' %></td>
     　<% end %>
-      
     </tr>
-  
 </p>
-
 <p>
   <strong>年齢:</strong>
   <%= @user.user_prof.try(:age) %>
