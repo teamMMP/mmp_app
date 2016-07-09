@@ -5,6 +5,12 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    @search = Event.search(params[:q])
+    @events = @search.result(distinct: true)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @topics }
+    end
   end
 
   # GET /events/1
