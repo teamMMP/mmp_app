@@ -13,6 +13,9 @@ class UserProfsController < ApplicationController
   def show
     @userprof = UserProf.find(params[:id])
   end
+  def index
+    @userprof = UserProf.find(params[:id])
+  end
 
   def create
     @userprof = UserProf.new(userprof_params)
