@@ -5,14 +5,16 @@ class UserProfsController < ApplicationController
   def new
     @userprof = UserProf.new
   end
-
-
+ 
   def edit
-  	 @userprof = UserProf.find(params[:id])
+  	@userprof = UserProf.find(params[:id])
   end
 
-   def show
-    
+  def show
+    @userprof = UserProf.find(params[:id])
+  end
+  def index
+    @userprof = UserProf.find(params[:id])
   end
 
   def create
