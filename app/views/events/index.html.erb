@@ -2,10 +2,16 @@
 <div class="section_title">
   <h2>一覧から探す</h2>
 </div>
+  <%= search_form_for @search do |f| %>
+  <%# start 特定の文字列で始まる商品名で検索 %>
+  <%= f.label :name_start, "イベント名" %>
+  <%= f.search_field :name_start %>
+  <br/>
+  <%= f.submit %>
+  <% end %>
 <section id="top_plans" class="row">
   <div class="user_and_plans">
     <div class="plan col-sm-4 col-xs-6">
-
       <div class="plsn_box_outer">
       <% @events.each do |event| %>
       <%=link_to event_path(event) do %>
@@ -15,7 +21,14 @@
             <h4><%= event.name %></h4>
           </div>
           <div class="a_plan relative">
-            
+          </div>
+          <div class="favorite">
+            <% if event.favorited_by?(current_user) %>
+              <p><%= link_to "いいね解除", event_favorites_path(event), method: :delete %>
+            <% else %>
+              <%= link_to "いいね!", event_favorites_path(event), method: :post %>
+            <% end %>
+              </p>
           </div>
         </div>
       <% end %>
@@ -23,9 +36,9 @@
       </div>
     </div>
   </div>
-</section>status
-
-
+</section>
 <p id="notice"><%= notice %></p>
-
 <div><%= link_to 'New Event', new_event_path %></div>
+<div><%= link_to 'マイページ', new_user_prof_path %></div>
+
+

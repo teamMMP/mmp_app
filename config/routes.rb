@@ -1,14 +1,26 @@
 Rails.application.routes.draw do
   #devise_for :users
-  resources :events
-  devise_for :users, path_names: { sign_in: "login", sign_out: "logout"}
+  devise_for :users, path_names: { sign_in: "login", sign_out: "logout"} do
+    get :favorites, on: :member
+  end
+
+  resources :events do
+    resource :favorites, only: [:create, :destroy]
+  end
+
+  resources :users, only: [:show, :index]
+  
   resources :user_profs
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  #root 'events#index'
-   devise_scope :user do
-    root :to => "devise/sessions#new"
-   end
+  root 'events#index'
+
+   # devise_scope :user do
+   #  root :to => "devise/sessions#new"
+   # end
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

@@ -7,7 +7,36 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
 
+	<% if user_signed_in? %> 
+    <div class = "navbar navbar-default">
+      <div class = "container">
+        <div class= "navbar-header" >
+         <p><%= link_to 'Matching App', root_path %></p>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "イベント一覧", events_path %></li>
+          <li><%= link_to 'ユーザー一覧', users_path %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <% if current_user.username.present? %>
+          <li><%= link_to "マイページ(#{current_user.username})" , user_path(current_user) %></li>
+        <% else %>
+          <li><%= link_to "マイページ(#{current_user.name})" , user_path(current_user) %></li>
+        <% end %>
+          <li><%= link_to '設定', edit_user_registration_path %> </li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        </ul>
+        <% else %>
+        <ul class="nav navbar-nav navbar-right new-navbar">
+          <li><%= link_to "サインイン", new_user_registration_path %> </li>
+          <li><%= link_to "ログイン", new_user_session_path %></ul>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+</header>
 <%= yield %>
 
 </body>

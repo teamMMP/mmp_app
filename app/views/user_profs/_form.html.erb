@@ -19,27 +19,40 @@
 
 
   <div class="field">
-    <%= f.label :nickname %><br>
-    <%= f.text_field :nickname %>
+    アイコン
+    <% f.label :image %><br>
+    <%= f.file_field :image %> 
   </div>
 
   <div class="field">
-    <%= f.label :gender %><br>
+    ニックネーム
+    <% f.label :nickname %><br>
+    <%= f.text_field :nickname %>
+  </div>
+
+   <div class="field">
+    大学
+    <% f.label :univ_id %><br>
+    <%= f.select :univ_id, Univ.all.map{ |u| [u.name, u.id] } %>
+  </div>
+
+  <div class="field">
+    性別
+    <% f.label :gender %><br>
     <%= f.radio_button :gender, 0 %>男
     <%= f.radio_button :gender, 1 %>女<br />
 
   </div>
+  
   <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %> 
-  </div>
-  <div class="field">
+    年齢
     <%= f.label :age %><br>
     <%= f.select :age, 18..29 %>
   </div>
 
   <div class="field">
-    <%= f.label :desc %><br>
+    自己紹介
+    <% f.label :desc %><br>
     <%= f.text_area :desc, :size=>"70" %>
   </div>
   <div class="actions">

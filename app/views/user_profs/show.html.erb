@@ -1,26 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>ニックネーム:</strong>
-  <%= @userprof.nickname %>
-</p>
-
-
-
 
 <p>
-  <strong>性別:</strong>
-  <%if @userprof.gender == 0%>
-  	<p>男</p>
-  <%end%>
-  <%if @userprof.gender == 1%>
-  	<p>女</p>
-  <%end%>
   
-</p>
-
-<p>
-  <strong>icon:</strong>
     <tr>
       <% if @userprof.image? %>
     　<td><%= image_tag @userprof.image.url %></td>
@@ -30,11 +12,38 @@
       
     </tr>
   
+
+  <%= @userprof.nickname %>
 </p>
+
+ <strong>大学:</strong>
+  <%= @userprof.univ.name %>
+</p>
+
+
+
+
+<p>
+  <strong>性別:</strong>
+  <%if @userprof.gender == 0%>
+  	男
+  <%end%>
+  <%if @userprof.gender == 1%>
+  	女
+  <%end%>
+  
+</p>
+
+
 
 <p>
   <strong>年齢:</strong>
   <%= @userprof.age %>
+</p>
+
+<p>
+  <strong>自己紹介:</strong>
+  <%= @userprof.desc %>
 </p>
 
 
