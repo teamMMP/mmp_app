@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20160702103258) do
+=======
 ActiveRecord::Schema.define(version: 20160709113928) do
+>>>>>>> 126c601cb947845559b381a57d1d96a0700d6028
 
   create_table "events", force: :cascade do |t|
     t.text     "name"
@@ -22,9 +26,14 @@ ActiveRecord::Schema.define(version: 20160709113928) do
     t.datetime "updated_at",  null: false
   end
 
+<<<<<<< HEAD
+  create_table "univs", force: :cascade do |t|
+    t.string   "name"
+=======
   create_table "favorites", force: :cascade do |t|
     t.integer  "event_id"
     t.integer  "user_id"
+>>>>>>> 126c601cb947845559b381a57d1d96a0700d6028
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,7 +44,11 @@ ActiveRecord::Schema.define(version: 20160709113928) do
     t.string  "image"
     t.integer "age"
     t.text    "desc"
+<<<<<<< HEAD
+    t.integer "univ_id"
+=======
     t.integer "user_id"
+>>>>>>> 126c601cb947845559b381a57d1d96a0700d6028
   end
 
   create_table "users", force: :cascade do |t|

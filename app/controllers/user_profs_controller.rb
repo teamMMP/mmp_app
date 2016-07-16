@@ -48,7 +48,7 @@ class UserProfsController < ApplicationController
     end
 
   def userprof_params
-      params.require(:user_prof).permit(:nickname, :gender, :image, :age, :desc)
+      params.require(:user_prof).permit(:nickname, :gender, :image, :age, :desc, :univ_id)
     end
 
 end
