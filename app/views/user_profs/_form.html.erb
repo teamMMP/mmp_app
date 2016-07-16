@@ -3,6 +3,8 @@
     <div id="error_explanation">
       <h2><%= pluralize(@userprof.errors.count, "error") %> prohibited this userprof from being saved:</h2>
 
+
+
       <ul>
       <% @userprof.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,6 +12,11 @@
       </ul>
     </div>
   <% end %>
+
+<div class="all">
+
+<div class="main">
+
 
   <div class="field">
     <%= f.label :nickname %><br>
@@ -38,4 +45,8 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
+  </div>
+</div>
+
 <% end %>
