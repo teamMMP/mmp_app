@@ -11,6 +11,7 @@
   <%= f.submit %>
   <% end %>
 
+<div><%= link_to 'イベントを作成', new_event_path %></div>
 
 <div class="container">
 <section id="top_plans" class="row">
@@ -22,28 +23,32 @@
         <div class="plan_box clearfix col-md-4">
 
           <div class="user_relative">
-            <div class="disp_table img_and_name">
-            <div><%= event.user.user_prof.try(:image) %></div>
-            <p><%= event.user.user_prof.try(:nickname) %></p>
-            <p><%= event.user.user_prof.try(:desc) %></p>
-            </div>
             <div class="avout_class_div"></div>
-            <div class="fav_div"> 
-            <% if event.favorited_by?(current_user) %>
-              <p><%= link_to "いいね解除", event_favorites_path(event), method: :delete %>
-            <% else %>
-              <%= link_to "いいね!", event_favorites_path(event), method: :post %>
-            <% end %>
-              </p>
-            </div>
+            
          </div>
           <%=link_to event_path(event) do %>
           <div class="a_plan relative">
            <h4><%= event.name %></h4>
+            <div class="disp_table img_and_name">
+            <div><%= event.user.user_prof.try(:image) %></div>
+            <p>投稿者：<%= event.user.user_prof.try(:nickname) %></p>
+            <p><%= event.user.user_prof.try(:desc) %></p>
+            </div>
            <p>
-            <%= event.area %>
-            <%= event.date %>
-           </p>
+            場所：<%= event.area %>
+          </p>
+          <p>
+            日付：<%= event.date %>
+          </p>
+          <div class="fav_div"> 
+            <% if event.favorited_by?(current_user) %>
+              <p><%= link_to "❤️", event_favorites_path(event), method: :delete %>
+            <% else %>
+              <%= link_to "♡", event_favorites_path(event), method: :post %>
+            <% end %>
+              </p>
+            </div>
+           
 
 
           </div>
@@ -61,7 +66,6 @@
 
 
 <p id="notice"><%= notice %></p>
-<div><%= link_to 'イベントを作成', new_event_path %></div>
-<div><%= link_to 'マイページ', new_user_prof_path %></div>
+
 
 
