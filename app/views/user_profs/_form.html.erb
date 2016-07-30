@@ -40,12 +40,6 @@
     <%= f.text_field :nickname,class: "form-control" %>
   </div>
 
-   <div class="field">
-    大学
-    <% f.label :univ_id %><br>
-    <%= f.select :univ_id, Univ.all.map{ |u| [u.name, u.id] } %>
-  </div>
-
   <div class="field">
     性別
     <% f.label :gender %><br>
