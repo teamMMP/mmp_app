@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 8d882bc3709ffe5f0c3c9ce5952456b399d65ca9
-ActiveRecord::Schema.define(version: 20160709113928) do
+ActiveRecord::Schema.define(version: 20160716102555) do
 
   create_table "events", force: :cascade do |t|
     t.text     "name"
@@ -28,7 +24,6 @@ ActiveRecord::Schema.define(version: 20160709113928) do
     t.integer  "user_id"
   end
 
-<<<<<<< HEAD
   create_table "favorites", force: :cascade do |t|
     t.integer  "event_id"
     t.integer  "user_id"
@@ -40,20 +35,7 @@ ActiveRecord::Schema.define(version: 20160709113928) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-=======
-
-  create_table "univs", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
-
-  create_table "favorites", force: :cascade do |t|
-    t.integer  "event_id"
-    t.integer  "user_id"
->>>>>>> 8d882bc3709ffe5f0c3c9ce5952456b399d65ca9
-  end
-
 
   create_table "user_profs", force: :cascade do |t|
     t.string  "nickname"
@@ -61,14 +43,8 @@ ActiveRecord::Schema.define(version: 20160709113928) do
     t.string  "image"
     t.integer "age"
     t.text    "desc"
-<<<<<<< HEAD
     t.integer "univ_id"
     t.integer "user_id"
-=======
-    t.integer "user_id"
-    t.integer "univ_id"
-
->>>>>>> 8d882bc3709ffe5f0c3c9ce5952456b399d65ca9
   end
 
   create_table "users", force: :cascade do |t|
