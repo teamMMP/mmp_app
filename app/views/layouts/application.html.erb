@@ -7,9 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<<<<<<< HEAD
-<%=link_to "logout", destroy_user_session_path, method: :delete %>
-=======
 <header>
 
 	<% if user_signed_in? %> 
@@ -40,7 +37,7 @@
       </div>
     </div>
 </header>
->>>>>>> e2e3b163cc2882a6d3dde36f09c8f9daf33343e9
+
 <%= yield %>
 
 </body>
