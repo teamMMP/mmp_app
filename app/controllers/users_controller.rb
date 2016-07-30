@@ -9,8 +9,8 @@ class UsersController < ApplicationController
   end
 
   def favorites
-      @user = User.find(params[:id])
-    end
+    @user = User.find(params[:id])
+  end
  
 
 end

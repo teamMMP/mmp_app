@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   #devise_for :users
-  devise_for :users, path_names: { sign_in: "login", sign_out: "logout"} do
-    get :favorites, on: :member
-  end
+  devise_for :users, path_names: { sign_in: "login", sign_out: "logout"}
+    
 
   resources :events do
     resource :favorites, only: [:create, :destroy]
   end
 
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :index] do
+    get :favorites, on: :member
+  end
   
   resources :user_profs
 
