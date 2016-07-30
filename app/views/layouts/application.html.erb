@@ -13,7 +13,7 @@
     <div class = "navbar navbar-default">
       <div class = "container">
         <div class= "navbar-header" >
-         <p><%= link_to 'Matching App', root_path %></p>
+         <p class -"app_title"><%= link_to 'Matching App', root_path %></p>
         </div>
         <ul class="nav navbar-nav">
           <li><%= link_to "イベント一覧", events_path %></li>
@@ -21,9 +21,9 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <% if current_user.username.present? %>
-          <li><%= link_to "マイページ(#{current_user.username})" , user_path(current_user) %></li>
+          <li><%= link_to "マイページ(#{current_user.username})" , new_user_prof_path(current_user) %></li>
         <% else %>
-          <li><%= link_to "マイページ(#{current_user.name})" , user_path(current_user) %></li>
+          <li><%= link_to "マイページ(#{current_user.name})" , new_user_prof_path(current_user) %></li>
         <% end %>
           <li><%= link_to '設定', edit_user_registration_path %> </li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
