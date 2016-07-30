@@ -17,6 +17,7 @@
 	margin: 0;
 	padding:0;
 }
+<<<<<<< HEAD
 .app_title{
 	font-size: 27px;
 	padding-top: 13px;
@@ -27,4 +28,43 @@
 .section{
 	padding-top: 10px;
 	padding-bottom: 100px;
+}
+
+.navbar-right{
+	font-size: 14px;
+	background-color: green;
+	width: 100%;
+}
+
+.devise{
+	margin-top:50px;
+	box-sizing: border-box;
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -160px 0 0 -160px;
+    width: 320px;
+    padding: 0 50px 40px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+.field{
+	margin-bottom: 30px;
+}
+.form-group{
+	margin-bottom: 70px;
+
+}
+.btn{
+	display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    font-size: 14px;
+    border-radius: 4px;
 }
