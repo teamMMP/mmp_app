@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>ニックネーム:</strong>
+  <%= @user.user_prof.try(:nickname) %>
+</p>
+<p>
+  <strong>性別:</strong>
+  <%if @user.user_prof.try(:gender) == 0%>
+  	<p>男</p>
+  <%end%>
+  <%if @user.user_prof.try(:gender) == 1%>
+  	<p>女</p>
+  <%end%>
+</p>
+<p>
+  <strong>icon:</strong>
+    <tr>
+      <% if @user.user_prof.present? %>
+    　<td><%= image_tag @user.user_prof.image.url %></td>
+    　<% else %>
+    　<td><%= image_tag 'noimage.gif' %></td>
+    　<% end %>
+    </tr>
+</p>
+<p>
+  <strong>年齢:</strong>
+  <%= @user.user_prof.try(:age) %>
+</p>
+
+

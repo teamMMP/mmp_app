@@ -1,0 +1,17 @@
+<% if @user.favorites.empty? %>
+    <div class="list-group-item">
+      まだお気に入りされた投稿はありません。
+    </div>
+<% end %>
+
+<% @user.favorites.map { |f| f.event }.each do |event| %>
+    <h4 class="user">
+        <span class="user-name">
+          <%= link_to event.name, event_path(event) %>
+        </span>
+    <span class="event-id"><%= event.id %></span>
+    </h4>
+    <div class="event-body">
+        <%= event.name %>
+    </div>  
+<% end %>

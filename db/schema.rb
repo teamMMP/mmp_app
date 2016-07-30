@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160702103129) do
+ActiveRecord::Schema.define(version: 20160716102555) do
 
   create_table "events", force: :cascade do |t|
     t.text     "name"
@@ -20,11 +20,19 @@ ActiveRecord::Schema.define(version: 20160702103129) do
     t.text     "info_member"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "EventId"
+    t.integer  "user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "event_id"
     t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "univs", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,6 +43,8 @@ ActiveRecord::Schema.define(version: 20160702103129) do
     t.string  "image"
     t.integer "age"
     t.text    "desc"
+    t.integer "univ_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,7 +64,6 @@ ActiveRecord::Schema.define(version: 20160702103129) do
     t.string   "username"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["username"], name: "index_users_on_username", unique: true
 

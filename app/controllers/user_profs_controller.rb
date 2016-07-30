@@ -5,14 +5,16 @@ class UserProfsController < ApplicationController
   def new
     @userprof = UserProf.new
   end
-
-
+ 
   def edit
-  	 @userprof = UserProf.find(params[:id])
+  	@userprof = UserProf.find(params[:id])
   end
 
-   def show
-    
+  def show
+    @userprof = UserProf.find(params[:id])
+  end
+  def index
+    @userprof = UserProf.find(params[:id])
   end
 
   def create
@@ -46,7 +48,7 @@ class UserProfsController < ApplicationController
     end
 
   def userprof_params
-      params.require(:user_prof).permit(:nickname, :gender, :image, :age, :desc)
+      params.require(:user_prof).permit(:nickname, :gender, :image, :age, :desc, :univ_id)
     end
 
 end

@@ -3,6 +3,8 @@
     <div id="error_explanation">
       <h2><%= pluralize(@userprof.errors.count, "error") %> prohibited this userprof from being saved:</h2>
 
+
+
       <ul>
       <% @userprof.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,31 +13,62 @@
     </div>
   <% end %>
 
+
+
   <div class="field">
-    <%= f.label :nickname %><br>
-    <%= f.text_field :nickname %>
+    アイコン
+    <% f.label :image %><br>
+    <div class='profile-img'>
+                <div class='overlay'>
+                  <span class='glyphicon glyphicon-camera off'></span>
+                </div>
+                <% if action_name == "new" %>
+                <div class='img' style='background-image:url(http://help.chatwork.com/hc/ja/article_attachments/202301560/ico_default_violet.png)'></div>
+
+                <% else %>
+                <div class='img' style='background-image:url(<%=@userprof.image.url%>)'></div>
+                <% end %>
+
+                <%= f.file_field :image, class: "file" %>
+              </div>
+           
+  </div>
+
+  <div class="field_nick">
+    ニックネーム
+    <% f.label :nickname %><br>
+    <%= f.text_field :nickname,class: "form-control" %>
+  </div>
+
+   <div class="field">
+    大学
+    <% f.label :univ_id %><br>
+    <%= f.select :univ_id, Univ.all.map{ |u| [u.name, u.id] } %>
   </div>
 
   <div class="field">
-    <%= f.label :gender %><br>
+    性別
+    <% f.label :gender %><br>
     <%= f.radio_button :gender, 0 %>男
     <%= f.radio_button :gender, 1 %>女<br />
 
   </div>
+  
   <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %> 
-  </div>
-  <div class="field">
-    <%= f.label :age %><br>
+    年齢
+    <% f.label :age %><br>
     <%= f.select :age, 18..29 %>
   </div>
 
   <div class="field">
-    <%= f.label :desc %><br>
-    <%= f.text_area :desc, :size=>"70" %>
+    自己紹介
+    <% f.label :desc %><br>
+    <%= f.text_area :desc, :size=>"70",class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-info" %>
   </div>
+
+ 
+
 <% end %>

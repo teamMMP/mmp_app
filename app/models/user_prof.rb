@@ -4,5 +4,7 @@ class UserProf < ActiveRecord::Base
 
 
 	has_many :posts
+	belongs_to :univ
+	belongs_to :user
 
 end
